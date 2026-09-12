@@ -1,6 +1,11 @@
+import { CiStar } from "react-icons/ci";
 import type { TechnologiType } from "../../types/Technologi";
+interface TechnologyCardProps {
+  technologies: TechnologiType[];
+    addToStack: (technology: TechnologiType) => void;
+}
 
-const Card = ({ technologies }) => {
+const Card = ({ technologies,  addToStack }:TechnologyCardProps ) => {
   console.log(technologies, "technologies");
   return (
     <div className="grid grid-cols-3 gap-5">
@@ -8,9 +13,8 @@ const Card = ({ technologies }) => {
         return (
           <div
             className=" bg-white border border-gray-200 rounded-2xl p-4 "
-            tecnologi={technologi.id}
+            key={technologi.id}
           >
-            {" "}
             <div className="flex items-center justify-between">
               <img className="w-10 h-10" src={technologi.icon} alt="" />
               <p
@@ -47,10 +51,17 @@ const Card = ({ technologies }) => {
 
               <p className="text-xs text-gray-500">{technologi.difficulty}</p>
 
+              <div className="flex items-center gap-2">
+               <CiStar />
+
               <p className="text-sm text-gray-600">{technologi.rating}</p>
+
+              </div>
+
             </div>
-            {/* Button */}
-            <button className="w-full bg-[#080d1c] text-white py-2.5 rounded-lg mt-4 ">
+
+            <button  onClick={() => addToStack(technologi)}
+            className="w-full bg-[#080d1c] text-white py-2.5 rounded-lg mt-4 ">
               Add to Stack
             </button>
           </div>

@@ -1,18 +1,34 @@
-import { use } from "react";
+import { use, useState } from "react";
 import type { TechnologiType } from "../../types/Technologi";
 import Card from "./Card";
+import YourStack from "../../YourStack/YourStack.js";
 
 interface TechnologiesProps {
   TechnologiesPromise: Promise<TechnologiType[]>;
 }
 
 const Technologies = ({ TechnologiesPromise }: TechnologiesProps) => {
-  console.log(TechnologiesPromise);
   const technologies = use(TechnologiesPromise);
-  console.log(technologies);
+
+  const [selectedTechnologies, setSelectedTechnologies] = useState<TechnologiType[]>([]);
+
+  const addToStack = (technology: TechnologiType) => {
+    setSelectedTechnologies((oldtechnology) => [...oldtechnology, technology]);
+  };
+
+  const removeTechnology = (id: string) => {
+    setSelectedTechnologies((oldtechnology) =>
+      oldtechnology.filter((technology) => technology.id !== id)
+    );
+  };
+
+  const removeAll = () => {
+    setSelectedTechnologies([]);
+  };
 
   return (
-    <div className=" container mx-auto">
+    <div className="container mx-auto">
+      
       <div>
         <h1 className="font-bold text-4xl">
           Explore the{" "}
@@ -20,9 +36,30 @@ const Technologies = ({ TechnologiesPromise }: TechnologiesProps) => {
             Technologies
           </span>
         </h1>
-        <p className="text-[#64748B] mb-10">Pick one technology per category to build your ideal stack.</p>
+
+        <p className="text-[#64748B] mb-10">
+          Pick one technology per category to build your ideal stack.
+        </p>
       </div>
-      <Card technologies={technologies}></Card>
+
+      <div className="grid grid-cols-4 gap-5">
+
+        <div className="col-span-3">
+          <Card
+            technologies={technologies}
+            addToStack={addToStack}
+          />
+        </div>
+
+        <div className="col-span-1">
+          <YourStack
+            selectedTechnologies={selectedTechnologies}
+            removeTechnology={removeTechnology}
+            removeAll={removeAll}
+          />
+        </div>
+
+      </div>
     </div>
   );
 };
