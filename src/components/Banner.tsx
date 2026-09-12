@@ -11,7 +11,7 @@ const Banner = () => {
         </p>
         <div className=" mt-8 flex items-center gap-4">  
         <button className="bg-linear-to-r from-[#EC4899] to-[#F97316] text-white px-4 py-2 rounded-md ">Explore Technologies</button>
-        <button className=" border px-4 py-2 rounded-md ">Learn More</button>
+        <button className=" border px-4 py-2 rounded-md btn">Learn More</button>
         </div>
       </div>
       <img src={BannerImage} alt="" />
