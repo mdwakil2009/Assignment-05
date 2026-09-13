@@ -10,7 +10,9 @@ interface TechnologiesProps {
 const Technologies = ({ TechnologiesPromise }: TechnologiesProps) => {
   const technologies = use(TechnologiesPromise);
 
-  const [selectedTechnologies, setSelectedTechnologies] = useState<TechnologiType[]>([]);
+  const [selectedTechnologies, setSelectedTechnologies] = useState<
+    TechnologiType[]
+  >([]);
 
   const addToStack = (technology: TechnologiType) => {
     setSelectedTechnologies((oldtechnology) => [...oldtechnology, technology]);
@@ -18,7 +20,7 @@ const Technologies = ({ TechnologiesPromise }: TechnologiesProps) => {
 
   const removeTechnology = (id: string) => {
     setSelectedTechnologies((oldtechnology) =>
-      oldtechnology.filter((technology) => technology.id !== id)
+      oldtechnology.filter((technology) => technology.id !== id),
     );
   };
 
@@ -28,7 +30,6 @@ const Technologies = ({ TechnologiesPromise }: TechnologiesProps) => {
 
   return (
     <div className="container mx-auto">
-      
       <div>
         <h1 className="font-bold text-4xl">
           Explore the{" "}
@@ -43,22 +44,23 @@ const Technologies = ({ TechnologiesPromise }: TechnologiesProps) => {
       </div>
 
       <div className="grid grid-cols-4 gap-5">
-
         <div className="col-span-3">
           <Card
             technologies={technologies}
             addToStack={addToStack}
+            selectedTechnologies={selectedTechnologies}
           />
         </div>
 
         <div className="col-span-1">
-          <YourStack
-            selectedTechnologies={selectedTechnologies}
-            removeTechnology={removeTechnology}
-            removeAll={removeAll}
-          />
+          <div className="sticky top-23">
+            <YourStack
+              selectedTechnologies={selectedTechnologies}
+              removeTechnology={removeTechnology}
+              removeAll={removeAll}
+            />
+          </div>
         </div>
-
       </div>
     </div>
   );

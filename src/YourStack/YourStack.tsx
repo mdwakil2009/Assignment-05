@@ -1,4 +1,6 @@
-import { IoCloseCircleOutline } from "react-icons/io5";
+
+import { IoCloseOutline } from "react-icons/io5";
+import type { TechnologiType } from "../types/Technologi";
 
 interface YourStackProps {
   selectedTechnologies: TechnologiType[];
@@ -16,7 +18,7 @@ const YourStack = ({
       <h2 className="text-xl font-bold">Your Stack</h2>
 
       <p className="text-sm text-gray-500 mt-1">
-        {selectedTechnologies.length} 
+        {selectedTechnologies.length} : Technology Selected 
       </p>
 
       <div className="mt-5 space-y-3">
@@ -43,8 +45,7 @@ const YourStack = ({
             <button
               onClick={() => removeTechnology(technology.id)}
               className="text-red-500"
-            >
-              <IoCloseCircleOutline/>
+            ><IoCloseOutline />
             </button>
           </div>
         ))}
@@ -57,7 +58,7 @@ const YourStack = ({
         >
           Remove All
         </button>
-      )}
+      )} 
     </div>
   );
 };
