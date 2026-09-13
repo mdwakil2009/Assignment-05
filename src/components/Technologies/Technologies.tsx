@@ -15,7 +15,7 @@ const Technologies = ({ TechnologiesPromise }: TechnologiesProps) => {
 
   const addToStack = (technology: TechnologiType) => {
     setSelectedTechnologies((oldtechnology) => [...oldtechnology, technology]);
-    alert('"✓ Added to Stack".')
+
    toast.success(' Added to Stack.', {
 position: "bottom-right",
 autoClose: 5000,

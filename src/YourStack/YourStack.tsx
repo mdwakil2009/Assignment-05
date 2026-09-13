@@ -18,9 +18,8 @@ const YourStack = ({
 
       <p className="text-sm text-gray-500 mt-1">
         {selectedTechnologies.length > 0
-          ? "Technology Selected "
-          : "No Technology Selected yet. "}{" "}
-        :
+          ? `${selectedTechnologies.length} Technologies Selected `
+          : "No Technology Selected yet."}
       </p>
 
       <div className="mt-5 space-y-3">

@@ -13,7 +13,7 @@ const Card = ({
   selectedTechnologies,
 }: TechnologyCardProps) => {
   return (
-    <div className="grid grid-cols-3 gap-5">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
       {technologies.map((technologi: TechnologiType) => {
         const isSelected = selectedTechnologies.some(
           (item) => item.id === technologi.id,
@@ -21,12 +21,19 @@ const Card = ({
 
         return (
           <div
-            className="bg-white border border-gray-200 rounded-2xl p-4"
+            className={`bg-white rounded-2xl p-4 ${
+              isSelected
+                ? "border-2 border-green-500"
+                : "border border-gray-200"
+            }`}
             key={technologi.id}
           >
             <div className="flex items-center justify-between">
-              <img className="w-10 h-10" src={technologi.icon} alt="" />
-
+              <img
+                className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+                src={technologi.icon}
+                alt=""
+              />
               <p
                 className={`badge ${
                   technologi.badge === "Popular"
@@ -48,11 +55,9 @@ const Card = ({
               </p>
             </div>
 
-            <h2 className="text-xl font-bold text-gray-900 mt-5">
-              {technologi.name}
-            </h2>
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900 mt-5"></h2>
 
-            <p className="text-md text-gray-500 mt-2 min-h-[65px]">
+            <p className="text-sm sm:text-md text-gray-500 mt-2 min-h-[65px]">
               {technologi.description}
             </p>
 
@@ -77,7 +82,7 @@ const Card = ({
                   addToStack(technologi);
                 }
               }}
-              className={`w-full text-white py-2.5 rounded-lg mt-4 rounded-lg ${
+              className={`w-full text-white py-2.5 rounded-lg mt-4 ${
                 isSelected ? "bg-green-500 " : "bg-[#080d1c]"
               }`}
             >
