@@ -33,11 +33,33 @@ transition: Bounce,
     setSelectedTechnologies((oldtechnology) =>
       oldtechnology.filter((technology) => technology.id !== id),
     );
+    toast.info("Remove Technology", {
+position: "bottom-right",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
+transition: Bounce,
+});
  
   };
 
   const removeAll = () => {
     setSelectedTechnologies([]);
+    toast.info('Remove All Technology', {
+position: "bottom-right",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
+transition: Bounce,
+});
   };
 
   return (
