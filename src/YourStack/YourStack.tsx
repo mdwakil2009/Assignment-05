@@ -1,16 +1,15 @@
-
 import { IoCloseOutline } from "react-icons/io5";
 import type { TechnologiType } from "../types/Technologi";
 
 interface YourStackProps {
   selectedTechnologies: TechnologiType[];
-  removeTechnology: (id: string) => void;
+  handleTechnology: (id: string) => void;
   removeAll: () => void;
 }
 
 const YourStack = ({
   selectedTechnologies,
-  removeTechnology,
+  handleTechnology,
   removeAll,
 }: YourStackProps) => {
   return (
@@ -18,7 +17,10 @@ const YourStack = ({
       <h2 className="text-xl font-bold">Your Stack</h2>
 
       <p className="text-sm text-gray-500 mt-1">
-        {selectedTechnologies.length} : Technology Selected 
+        {selectedTechnologies.length > 0
+          ? "Technology Selected "
+          : "No Technology Selected yet. "}{" "}
+        :
       </p>
 
       <div className="mt-5 space-y-3">
@@ -28,28 +30,28 @@ const YourStack = ({
             className="border border-gray-200 rounded-lg p-3 flex items-center justify-between"
           >
             <div className="flex items-center gap-3">
-              <img
-                src={technology.icon}
-                alt=""
-                className="w-8 h-8"
-              />
+              <img src={technology.icon} alt="" className="w-8 h-8" />
 
               <div>
                 <h3 className="font-medium">{technology.name}</h3>
-                <p className="text-xs text-gray-400">
-                  {technology.category}
-                </p>
+                <p className="text-xs text-gray-400">{technology.category}</p>
               </div>
             </div>
 
             <button
-              onClick={() => removeTechnology(technology.id)}
+              onClick={() => handleTechnology(technology.id)}
               className="text-red-500"
-            ><IoCloseOutline />
+            >
+              <IoCloseOutline />
             </button>
           </div>
         ))}
       </div>
+      {selectedTechnologies.length === 0 && (
+        <div className="mt-5 border border-dashed border-gray-200 rounded-xl p-8 text-center">
+          <p className="text-sm text-gray-400">Your stack is empty.</p>
+        </div>
+      )}
 
       {selectedTechnologies.length > 0 && (
         <button
@@ -58,7 +60,7 @@ const YourStack = ({
         >
           Remove All
         </button>
-      )} 
+      )}
     </div>
   );
 };

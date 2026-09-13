@@ -2,6 +2,7 @@ import { use, useState } from "react";
 import type { TechnologiType } from "../../types/Technologi";
 import Card from "./Card";
 import YourStack from "../../YourStack/YourStack.js";
+import { Bounce, toast } from "react-toastify";
 
 interface TechnologiesProps {
   TechnologiesPromise: Promise<TechnologiType[]>;
@@ -10,18 +11,29 @@ interface TechnologiesProps {
 const Technologies = ({ TechnologiesPromise }: TechnologiesProps) => {
   const technologies = use(TechnologiesPromise);
 
-  const [selectedTechnologies, setSelectedTechnologies] = useState<
-    TechnologiType[]
-  >([]);
+  const [selectedTechnologies, setSelectedTechnologies] = useState<TechnologiType[]>([]);
 
   const addToStack = (technology: TechnologiType) => {
     setSelectedTechnologies((oldtechnology) => [...oldtechnology, technology]);
+    alert('"✓ Added to Stack".')
+   toast.success(' Added to Stack.', {
+position: "bottom-right",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
+transition: Bounce,
+});
   };
 
-  const removeTechnology = (id: string) => {
+  const handleTechnology = (id: string) => {
     setSelectedTechnologies((oldtechnology) =>
       oldtechnology.filter((technology) => technology.id !== id),
     );
+ 
   };
 
   const removeAll = () => {
@@ -56,7 +68,7 @@ const Technologies = ({ TechnologiesPromise }: TechnologiesProps) => {
           <div className="sticky top-23">
             <YourStack
               selectedTechnologies={selectedTechnologies}
-              removeTechnology={removeTechnology}
+              handleTechnology={handleTechnology}
               removeAll={removeAll}
             />
           </div>

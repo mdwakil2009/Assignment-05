@@ -16,7 +16,7 @@ const Card = ({
     <div className="grid grid-cols-3 gap-5">
       {technologies.map((technologi: TechnologiType) => {
         const isSelected = selectedTechnologies.some(
-          (item) => item.id === technologi.id
+          (item) => item.id === technologi.id,
         );
 
         return (
@@ -25,11 +25,7 @@ const Card = ({
             key={technologi.id}
           >
             <div className="flex items-center justify-between">
-              <img
-                className="w-10 h-10"
-                src={technologi.icon}
-                alt=""
-              />
+              <img className="w-10 h-10" src={technologi.icon} alt="" />
 
               <p
                 className={`badge ${
@@ -56,7 +52,7 @@ const Card = ({
               {technologi.name}
             </h2>
 
-            <p className="text-sm text-gray-500 mt-2 min-h-[65px]">
+            <p className="text-md text-gray-500 mt-2 min-h-[65px]">
               {technologi.description}
             </p>
 
@@ -67,24 +63,25 @@ const Card = ({
                 {technologi.category}
               </p>
 
-              <p className="text-xs text-gray-500">
-                {technologi.difficulty}
-              </p>
+              <p className="text-xs text-gray-500">{technologi.difficulty}</p>
 
               <div className="flex items-center gap-2">
                 <CiStar />
-                <p className="text-sm text-gray-600">
-                  {technologi.rating}
-                </p>
+                <p className="text-sm text-gray-600">{technologi.rating}</p>
               </div>
             </div>
 
             <button
-              onClick={() => addToStack(technologi)}
-              disabled={isSelected}
-              className="w-full bg-[#080d1c] text-white py-2.5 rounded-lg mt-4 disabled:bg-gray-400 disabled:cursor-not-allowed"
+              onClick={() => {
+                if (!isSelected) {
+                  addToStack(technologi);
+                }
+              }}
+              className={`w-full text-white py-2.5 rounded-lg mt-4 rounded-lg ${
+                isSelected ? "bg-green-500 " : "bg-[#080d1c]"
+              }`}
             >
-              {isSelected ? "Added" : "Add to Stack"}
+              {isSelected ? "✓ Added to Stack" : "Add to Stack"}
             </button>
           </div>
         );
