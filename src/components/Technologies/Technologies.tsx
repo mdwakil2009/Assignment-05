@@ -45,8 +45,7 @@ transition: Bounce,
       <div>
         <h1 className="font-bold text-4xl">
           Explore the
-          <span className="bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] bg-clip-text text-transparent">
-            Technologies
+          <span className="bg-brand-gradient bg-clip-text text-transparent">Technologies
           </span>
         </h1>
 

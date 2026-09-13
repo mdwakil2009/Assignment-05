@@ -1,3 +1,4 @@
+
 import BannerImage from "../assets/banner-stack.png";
 
 const Banner = () => {
@@ -6,7 +7,7 @@ const Banner = () => {
       <div className="w-full lg:w-1/2">
         <h1 className="mt-5 text-3xl sm:text-4xl lg:text-5xl font-bold">
           Build Your Ideal <br />
-          <span className="bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+          <span className="bg-brand-gradient bg-clip-text text-transparent">
             Development Stack
           </span>
         </h1>
@@ -19,7 +20,7 @@ const Banner = () => {
         </p>
 
         <div className="mt-6 lg:mt-10 flex flex-wrap items-center gap-4">
-          <button className="bg-linear-to-r from-[#EC4899] to-[#F97316] text-white px-4 py-2 rounded-md">
+          <button className="bg-brand-gradient text-white px-4 py-2 rounded-md">
             Explore Technologies
           </button>
 
