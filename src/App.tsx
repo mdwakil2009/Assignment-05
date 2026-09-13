@@ -3,6 +3,7 @@ import Banner from "./components/Banner"
 import { Suspense } from "react"
 import Technologies from "./components/Technologies/Technologies"
 import type { TechnologiType } from "./types/Technologi"
+import Footer from "./components/Technologies/Footer"
 
 
 const TechnologiesPromise = async(): Promise<TechnologiType[]> =>{
@@ -21,6 +22,7 @@ function App() {
      <Suspense fallback={<p>Looding</p>}>
       <Technologies TechnologiesPromise={TechnologiesPromise()} ></Technologies>
      </Suspense>
+     <Footer></Footer>
 
     
       

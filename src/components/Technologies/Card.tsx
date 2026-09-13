@@ -28,7 +28,7 @@ const Card = ({
               <img
                 className="w-10 h-10"
                 src={technologi.icon}
-                alt={technologi.name}
+                alt=""
               />
 
               <p

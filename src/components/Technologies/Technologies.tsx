@@ -32,13 +32,13 @@ const Technologies = ({ TechnologiesPromise }: TechnologiesProps) => {
     <div className="container mx-auto">
       <div>
         <h1 className="font-bold text-4xl">
-          Explore the{" "}
+          Explore the
           <span className="bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] bg-clip-text text-transparent">
             Technologies
           </span>
         </h1>
 
-        <p className="text-[#64748B] mb-10">
+        <p className="text-[#64748B] mb-10 mt-4">
           Pick one technology per category to build your ideal stack.
         </p>
       </div>

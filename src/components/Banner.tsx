@@ -9,7 +9,7 @@ const Banner = () => {
           Explore frontend, backend, database, and tooling options,<br /> compare them
           side by side, and put together the stack that fits your <br /> next project.
         </p>
-        <div className=" md-10 flex items-center gap-4">  
+        <div className=" mt-10 flex items-center gap-4">  
         <button className="bg-linear-to-r from-[#EC4899] to-[#F97316] text-white px-4 py-2 rounded-md ">Explore Technologies</button>
         <button className=" border px-4 py-2 rounded-md btn">Learn More</button>
         </div>
