@@ -1,75 +1,76 @@
-# React + TypeScript + Vite
+#  DevStack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+##  Project Name
 
-Currently, two official plugins are available:
+**DevStack**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+##  Description
 
-## React Compiler
+DevStack is a simple web application where users can explore different technologies and build their own development stack.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+##  Technologies Used
 
-## Expanding the ESLint configuration
+* React
+* TypeScript
+* Tailwind CSS
+* DaisyUI
+* React Icons
+* Vite
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+##  Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+*  Explore different technologies
+*  Add technologies to your own stack
+*  Fully responsive for mobile, tablet, and desktop
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🔗 Project Links
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+🌐 **Live Project:** [Visit DevStack](https://shiny-profiterole-6a0d2c.netlify.app/)
 
+
+---
+
+# ❓ React Questions & Answers
+
+### 1. What is JSX, and why is it used in React?
+
+**Answer:** JSX lets us write HTML-like code in JavaScript. It helps us create the UI easily.
+
+### 2. What is the difference between props and state?
+
+**Answer:** Props pass data to a component. State stores data that can change.
+
+### 3. What does the `useState` hook do, and where did you use it?
+
+**Answer:** `useState` stores and changes data. I used it to store selected technologies.
+
+### 4. What does the `useEffect` hook do?
+
+**Answer:** `useEffect` runs code after the component loads. It can be used to load data.
+
+### 5. Why does `.map()` need a unique `key`?
+
+**Answer:** `key` helps React identify each item in a list.
+
+### 6. What is conditional rendering?
+
+**Answer:** It means showing something when a condition is true.
+
+Example:
+
+```tsx
+{selectedTechnologies.length === 0 && (
+  <p>Your stack is empty.</p>
+)}
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+### 7. How do you pass data from parent to child?
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+**Answer:** We use props to pass data from parent to child. The child can send something back by using a function from props.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
 
-```
+## Author
+
+**Wakil Ahmed**
+
